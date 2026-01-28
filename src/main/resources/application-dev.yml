@@ -1,0 +1,12 @@
+mini-program-server:
+  mysql:
+    username: root
+    password: Zxy199569.
+    host: 127.0.0.1
+    port: 3306
+    database: mini_program_server
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${mini-program-server.mysql.host}:${mini-program-server.mysql.port}/${mini-program-server.mysql.database}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&nullCatalogMeansCurrent=true
+
+  flyway:
+    mysql-location: classpath:db/migration/mysql

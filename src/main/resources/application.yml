@@ -1,0 +1,40 @@
+spring:
+  profiles:
+    active: dev
+    include: dev, prod
+
+  mvc:
+    throw-exception-if-no-handler-found: true
+  web:
+    resources:
+      add-mappings: false
+
+  datasource:
+    url: ${mini-program-server.mysql.url}
+    username: ${mini-program-server.mysql.username}
+    password: ${mini-program-server.mysql.password}
+    driver-class-name: ${mini-program-server.mysql.driver-class-name}
+
+    flyway:
+      enabled: true
+      clean-disabled: true
+      baseline-on-migrate: true
+      baseline-version: 0
+      locations: ${mini-program-server.flyway.mysql-location}
+
+
+jwt:
+  secret: this-is-a-serect-used-for-mini-program-server-which-is-longer-than-32-characters!!
+  expire: 86400000
+
+logging:
+  config: classpath:logback-dev.xml
+  file:
+    name: /logs
+  level:
+    root: INFO
+    #druid sql打印 ,过滤器在com.alibaba.druid.filter.logging.LogFilter
+    druid.sql.DataSource: INFO
+    druid.sql.Connection: INFO
+    druid.sql.Statement: INFO
+    druid.sql.ResultSet: INFO
