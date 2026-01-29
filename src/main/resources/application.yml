@@ -22,6 +22,13 @@ spring:
       baseline-version: 0
       locations: ${mini-program-server.flyway.mysql-location}
 
+  # 禁用 Spring Boot 的 MongoDB 自动配置，使用自定义配置
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration
+      - org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration
+
 
 jwt:
   secret: this-is-a-serect-used-for-mini-program-server-which-is-longer-than-32-characters!!

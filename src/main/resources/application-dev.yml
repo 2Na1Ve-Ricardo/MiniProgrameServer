@@ -10,3 +10,58 @@ mini-program-server:
 
   flyway:
     mysql-location: classpath:db/migration/mysql
+
+  services:
+    mongodb:
+      enabled: true
+      host: 127.0.0.1
+      port: 27017
+      database: mini_mongo
+
+    rabbitmq:
+      enabled: true
+      host: 115.159.193.191
+      username: admin
+      password: admin
+      virtual-host: /
+      connection-timeout: 15000
+
+      exchange:
+        name: amq.direct
+        type: direct
+        durable: true
+
+      queues:
+        - name: cache_task
+          routing-key: testMessage
+          dead-letter-routing-key: task.dlq
+          durable: false
+        - name: cache_channel
+          routing-key: testChannel
+          dead-letter-routing-key: channel.dlq
+          durable: false
+        - name: cache_condition
+          routing-key: testCondition
+          dead-letter-routing-key: condition.dlq
+          durable: false
+        - name: task_data
+          routing-key: taskData
+          dead-letter-routing-key: data.dlq
+          durable: false
+      dead-letter:
+        exchange-name: dlx.exchange
+        queue-name: data-collection.dlq
+        durable: true
+
+      listener:
+        simple:
+          acknowledge-mode: manual
+          concurrency: 1
+          max-concurrency: 5
+          prefetch: 1
+          retry:
+            enabled: true
+            max-attempts: 3
+            initial-interval: 1000
+            multiplier: 2
+            max-interval: 10000
