@@ -1,13 +1,12 @@
-package com.chenling.miniprogram.services.mongo.service.impl;
+package com.chenling.miniprogram.business.mongo.service.impl;
 
 
-import com.chenling.miniprogram.services.mongo.entity.GlobalStateCache;
-import com.chenling.miniprogram.services.mongo.service.IGlobalCacheService;
+import com.chenling.miniprogram.business.mongo.entity.GlobalStateCache;
+import com.chenling.miniprogram.business.mongo.service.IGlobalCacheService;
 import java.util.Date;
 import java.util.Optional;
 import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -16,8 +15,7 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-@ConditionalOnBean(MongoTemplate.class)
-public class GlobalServiceImpl implements IGlobalCacheService {
+public class GlobalService implements IGlobalCacheService {
 
   @Resource
   private MongoTemplate mongoTemplate;

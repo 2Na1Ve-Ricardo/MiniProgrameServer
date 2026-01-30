@@ -21,6 +21,7 @@ mini-program-server:
     rabbitmq:
       enabled: true
       host: 115.159.193.191
+      port: 5672
       username: admin
       password: admin
       virtual-host: /

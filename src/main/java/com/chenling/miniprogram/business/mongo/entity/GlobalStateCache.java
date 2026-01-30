@@ -1,4 +1,4 @@
-package com.chenling.miniprogram.services.mongo.entity;
+package com.chenling.miniprogram.business.mongo.entity;
 
 import java.util.Date;
 import javax.persistence.Id;

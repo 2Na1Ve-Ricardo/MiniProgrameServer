@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import lombok.var;
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -23,6 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
+@EnableRabbit
 @Configuration
 @ConditionalOnProperty(prefix = "mini-program-server.services.rabbitmq", name = "enabled", havingValue = "true")
 public class RabbitMQConfig {

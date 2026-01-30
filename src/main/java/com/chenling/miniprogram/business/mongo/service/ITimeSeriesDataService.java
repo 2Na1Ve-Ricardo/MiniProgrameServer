@@ -1,6 +1,6 @@
-package com.chenling.miniprogram.services.mongo.service;
+package com.chenling.miniprogram.business.mongo.service;
 
-import com.chenling.miniprogram.services.mongo.entity.TimeSeriesData;
+import com.chenling.miniprogram.business.mongo.entity.TimeSeriesData;
 import java.util.List;
 import java.util.Map;
 

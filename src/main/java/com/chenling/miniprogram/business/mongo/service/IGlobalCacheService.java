@@ -1,6 +1,6 @@
-package com.chenling.miniprogram.services.mongo.service;
+package com.chenling.miniprogram.business.mongo.service;
 
-import com.chenling.miniprogram.services.mongo.entity.GlobalStateCache;
+import com.chenling.miniprogram.business.mongo.entity.GlobalStateCache;
 import java.util.Optional;
 
 public interface IGlobalCacheService {

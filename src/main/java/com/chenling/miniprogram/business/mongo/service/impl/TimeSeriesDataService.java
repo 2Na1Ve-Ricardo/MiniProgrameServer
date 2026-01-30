@@ -1,7 +1,7 @@
-package com.chenling.miniprogram.services.mongo.service.impl;
+package com.chenling.miniprogram.business.mongo.service.impl;
 
-import com.chenling.miniprogram.services.mongo.entity.TimeSeriesData;
-import com.chenling.miniprogram.services.mongo.service.ITimeSeriesDataService;
+import com.chenling.miniprogram.business.mongo.entity.TimeSeriesData;
+import com.chenling.miniprogram.business.mongo.service.ITimeSeriesDataService;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @ConditionalOnBean(MongoTemplate.class)
-public class TimeSeriesDataServiceImpl implements ITimeSeriesDataService {
+public class TimeSeriesDataService implements ITimeSeriesDataService {
 
   @Resource
   private MongoTemplate mongoTemplate;

@@ -25,21 +25,21 @@ public abstract class BaseMessageListener {
       log.info("开始处理消息，routingKey = {}, deliveryTag = {}", routingKey, deliveryTag);
       processor.process();
 
-      channel.basicAck(deliveryTag, false);
+      // channel.basicAck(deliveryTag, false);
       log.info("消息处理成功，deliveryTag = {}", deliveryTag);
 
     } catch (Exception e) {
       log.error("消息处理失败：routingKey = {}, error = {}", routingKey, e.getMessage());
 
-      try {
-        channel.basicNack(deliveryTag, false, false);
-
-        if (rabbitMQService != null) {
-          rabbitMQService.sendToDeadLetterQueue(message, e.getMessage());
-        }
-      } catch (Exception ex) {
-        log.error("消息确认失败: {}", ex.getMessage(), ex);
-      }
+//      try {
+//        channel.basicNack(deliveryTag, false, false);
+//
+//        if (rabbitMQService != null) {
+//          rabbitMQService.sendToDeadLetterQueue(message, e.getMessage());
+//        }
+//      } catch (Exception ex) {
+//        log.error("消息确认失败: {}", ex.getMessage(), ex);
+//      }
     }
   }
 }
