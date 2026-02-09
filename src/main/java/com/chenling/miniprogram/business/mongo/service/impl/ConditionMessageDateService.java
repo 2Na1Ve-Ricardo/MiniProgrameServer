@@ -5,6 +5,8 @@ import com.chenling.miniprogram.business.mongo.entity.ConditionMessageData;
 import com.chenling.miniprogram.business.mongo.entity.GlobalStateCache;
 import com.chenling.miniprogram.business.mongo.service.IConditionMessageDataService;
 import com.chenling.miniprogram.business.rabbitmq.dto.ConditionMessageDTO;
+import com.chenling.miniprogram.common.enums.ResultCodeEnums;
+import com.chenling.miniprogram.common.exceptions.BusinessException;
 import java.util.Collections;
 import java.util.List;
 import javax.annotation.Resource;
@@ -27,10 +29,15 @@ public class ConditionMessageDateService implements IConditionMessageDataService
   public boolean upsert(ConditionMessageDTO conditionMessage) {
     Query query = new Query()
         .addCriteria(Criteria.where("taskId").is(status.getCurrentTaskId())
-            .and("conditionName").is(conditionMessage.getName()));
+            .and("name").is(conditionMessage.getName()));
 
+    String currentTaskId = status.getCurrentTaskId();
+
+    if (currentTaskId == null || currentTaskId.isEmpty()) {
+      throw new BusinessException(ResultCodeEnums.INTERNAL_ERROR, "【condition 存储过程】缓存中获取到的TaskID为空");
+    }
     Update update = new Update()
-        .set("taskId", status.getCurrentTaskId())
+        .set("taskId", currentTaskId)
         .set("serial_number", conditionMessage.getSerialNumber())
         .set("name", conditionMessage.getName())
         .set("tensile_force", conditionMessage.getTensileForce())

@@ -20,13 +20,13 @@ public class TimeSeriesDataService implements ITimeSeriesDataService {
   private MongoTemplate mongoTemplate;
 
   @Override
-  public TimeSeriesData saveTimeSeriesData(String taskId, String conditionName, Object value,
+  public TimeSeriesData saveTimeSeriesData(String taskId, String conditionName, String channelName, Object value,
       Map<String, Object> metadata) {
     return null;
   }
 
   @Override
-  public TimeSeriesData saveTimeSeriesData(String taskId, String conditionName, Object value) {
+  public TimeSeriesData saveTimeSeriesData(String taskId, String conditionName, String channelName, Object value) {
     return null;
   }
 

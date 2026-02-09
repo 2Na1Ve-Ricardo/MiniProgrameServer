@@ -6,8 +6,8 @@ import java.util.Map;
 
 public interface ITimeSeriesDataService {
 
-  TimeSeriesData saveTimeSeriesData(String taskId, String conditionName, Object value, Map<String, Object> metadata);
-  TimeSeriesData saveTimeSeriesData(String taskId, String conditionName, Object value);
+  TimeSeriesData saveTimeSeriesData(String taskId, String conditionName, String channelName, Object value, Map<String, Object> metadata);
+  TimeSeriesData saveTimeSeriesData(String taskId, String conditionName, String channelName, Object value);
   TimeSeriesData queryLastTimeSeriesData(String taskId, String conditionName, String channelName);
 
   List<TimeSeriesData> queryTimeSeriesData(String taskId, String conditionName, String channelName, String startTime, String endTime);

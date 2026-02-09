@@ -51,7 +51,7 @@ mini-program-server:
           durable: false
       dead-letter:
         exchange-name: dlx.exchange
-        queue-name: data-collection.dlq
+        queue-name: dlx.queue
         durable: true
 
       listener:

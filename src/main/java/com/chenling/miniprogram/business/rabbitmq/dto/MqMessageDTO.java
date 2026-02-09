@@ -2,6 +2,8 @@ package com.chenling.miniprogram.business.rabbitmq.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import lombok.Data;
 
 @Data
@@ -23,8 +25,8 @@ public class MqMessageDTO {
   private TaskMessageDTO taskMessageData;
 
   @JsonProperty("ChannelDataDic")
-  private ChannelMessageDTO channelMessageData;
+  private Map<String, List<ChannelMessageDTO>> channelMessageData;
 
   @JsonProperty("ConditionDataDic")
-  private ConditionMessageDTO conditionMessageData;
+  private Map<String, ConditionMessageDTO> conditionMessageData;
 }

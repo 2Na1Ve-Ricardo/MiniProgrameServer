@@ -21,7 +21,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class TimeSeriesData {
 
   @Id
-  private String id;
+  private long id;
 
   @Indexed
   @Field("taskId")
@@ -30,6 +30,9 @@ public class TimeSeriesData {
   @Indexed
   @Field("conditionName")
   private String conditionName;
+
+  @Field("channelName")
+  private String channelName;
 
   @Field("value")
   private Object value;

@@ -7,7 +7,7 @@ import lombok.Data;
 public class ConditionMessageDTO {
 
   @JsonProperty("SerialNumber")
-  private long serialNumber;
+  private String serialNumber;
 
   @JsonProperty("TensileForce")
   private String tensileForce;
