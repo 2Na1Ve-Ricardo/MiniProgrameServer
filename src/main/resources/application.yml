@@ -45,3 +45,11 @@ logging:
     druid.sql.Connection: INFO
     druid.sql.Statement: INFO
     druid.sql.ResultSet: INFO
+
+server-config:
+  static:
+    resource-path: ${MINI_PROGRAM_SERVER_RESOURCE_PATH:./static}
+
+  wechat:
+    appId: wxce2cb8ea661432a8
+    secret: fd72396611bc2c55673b8a1662c48b56

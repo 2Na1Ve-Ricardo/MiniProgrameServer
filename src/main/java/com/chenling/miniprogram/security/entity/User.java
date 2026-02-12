@@ -1,17 +1,12 @@
 package com.chenling.miniprogram.security.entity;
 
+import com.chenling.miniprogram.utils.JPAStringList2JsonConverter;
 import com.sun.istack.NotNull;
 import com.sun.xml.internal.ws.developer.Serialization;
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import java.util.List;
+import javax.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -48,6 +43,11 @@ public class User implements Serializable {
 
   @Nullable
   private String company;
+
+  @Nullable
+  @Column(name = "page_permissions", columnDefinition = "json")
+  @Convert(converter = JPAStringList2JsonConverter.class)
+  private List<String> pagePermissions;
 
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "role_id", nullable = false)

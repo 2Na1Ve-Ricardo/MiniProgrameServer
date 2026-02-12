@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -21,6 +23,8 @@ public class LoginVo {
   private String role;
 
   private String roleName;
+
+  private List<String> pagePermissions;
 
   private Boolean hasBindAppId;
 }

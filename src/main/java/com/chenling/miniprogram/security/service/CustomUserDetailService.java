@@ -33,6 +33,6 @@ public class CustomUserDetailService implements UserDetailsService {
 
   public User loadUserByAppId(String appId) {
     return userRepository.findByAppId(appId)
-        .orElseThrow(() -> new UsernameNotFoundException("AppId 未绑定: " + appId));
+            .orElse(null);
   }
 }
